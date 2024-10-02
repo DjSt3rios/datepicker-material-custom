@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+::ng-deep {
+  .custom-picker .mat-calendar-body-label {
+    display: none
+  }
+
+  .custom-picker .mat-calendar-table-header span {
+    color: purple;
+    font-weight: bold;
+  }
+}
