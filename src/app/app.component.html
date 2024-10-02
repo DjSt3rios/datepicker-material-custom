@@ -1,7 +1,7 @@
 <div class="container">
   <mat-form-field class="example-full-width">
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="date">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date" (ngModelChange)="onChanged()">
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker touchUi #picker [calendarHeaderComponent]="datepickerHeader"  panelClass="custom-picker" ></mat-datepicker>
   </mat-form-field>

@@ -6,6 +6,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {DatepickerHeaderComponent} from './datepicker-header/datepicker-header.component';
 import {provideMomentDateAdapter} from '@angular/material-moment-adapter';
 import {FormsModule} from '@angular/forms';
+import moment from 'moment';
 
 export const MOMENT_DATE_FORMATS = {
   parse: {
@@ -22,7 +23,7 @@ export const MOMENT_DATE_FORMATS = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  providers: [provideMomentDateAdapter(MOMENT_DATE_FORMATS)],
+  providers: [provideMomentDateAdapter(MOMENT_DATE_FORMATS, { useUtc: true })],
   imports: [RouterOutlet, MatFormFieldModule, MatInputModule, MatDatepickerModule, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -31,4 +32,9 @@ export class AppComponent {
   title = 'untitled';
   datepickerHeader = DatepickerHeaderComponent;
   date = new Date();
+
+  onChanged() {
+    const date = moment(this.date);
+    console.log('New date:', date);
+  }
 }
